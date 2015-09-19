@@ -19,12 +19,13 @@ class DevelopmentConfig(Config):
     DEBUG = True
     # SKIP ALL THE MAILS AND DATABASE STUFF
 
-class TestingConfig(config):
+class TestingConfig(Config):
     TESTING = True
     # Skipping the database config
 
 class ProductionConfig(Config):
     # SKIPPING THE Database again
+    pass
 
 config = {
     'development' : DevelopmentConfig,
