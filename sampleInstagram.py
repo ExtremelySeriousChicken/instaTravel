@@ -6,8 +6,6 @@ def setup():
     popular_media = api.media_popular(count=20)
     for media in popular_media:
         print (media.images['standard_resolution'].url)
-        print (media.images[
-
 
 
 setup()
