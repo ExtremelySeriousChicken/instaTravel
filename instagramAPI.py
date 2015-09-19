@@ -31,7 +31,8 @@ def printUserData():
         print (loc[0], loc[1])
 
 # def AirportInformation(lat, long):
-	
+# 	newarestAirportResponse = flights.nearest_relevant(LOCATIONS[0][0], LOCATIONS[0][1])
 
+# AirportInformation(0,0)
 getUserLikedInformation()
 printUserData()
