@@ -21,7 +21,7 @@ def getUserLikedInformation():
     		moreUserMedia, next_ = api.user_liked_media(with_next_url=next_)
     		userMediaValue.extend(moreUserMedia)
 	for media in userMediaValue:
-		if hasattr(media, 'location'):
+		if hasattr(media, 'location') and hasattr(media.location, 'point') and hasattr(media.location.point, 'latitude'):
 			print (media.location.point.latitude)
 
 getUserLikedInformation()
