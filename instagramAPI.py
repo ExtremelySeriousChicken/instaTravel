@@ -17,6 +17,9 @@ popular_media = api.media_popular(count=20)
 
 def getUserLikedInformation():
 	userMediaValue, next_ = api.user_liked_media()
+	while next_:
+    		moreUserMedia, next_ = api.user_liked_media(with_next_url=next_)
+    		userMediaValue.extend(moreUserMedia)
 	for media in userMediaValue:
 		if hasattr(media, 'location'):
 			print (media.location.point.latitude)
