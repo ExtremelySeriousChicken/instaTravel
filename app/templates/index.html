@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}InstaTravel{% endblock %}
+
+
+<!--      These center it somehow -->
+{% block content %}
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+
+          <div class="inner cover">
+            <h1 class="cover-heading">InstaTravel</h1>
+            <p class="lead">Where will your next like take you?</p>
+            <p class="lead">
+              <div class="login_instagram">
+                 <script type="text/javascript">
+                 function instagram(){
+                      console.log("is this working???")
+                      window.location.replace("https://api.instagram.com/oauth/authorize/?client_id=7a70b000e89148c099fadad54d6c7646&redirect_uri=http://localhost:5000/instagram_callback&response_type=code");
+                 }
+
+                 </script>
+                 <a href="#" class="btn btn-lg btn-default" onclick="instagram()">Sign in with Instagram</a>
+              </div>
+            </p>
+          </div>
+
+
+<!--          Footer for bootstrap    -->
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+    

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}InstaTravel{% endblock %}
+
+
+<!--      These center it somehow -->
+{% block content %}
+
+<!--      These center it somehow -->
+    <script type="text/javascript">
+    function searchAirport(){
+        var result = "";
+        var submitData = "apikey=RzGfJPsCmYIRlDmTi6Og2BAYAVviEAdh&term=" + $("#location").val();
+        $.ajax({
+             type: "GET",
+             url: "https://api.sandbox.amadeus.com/v1.2/airports/autocomplete?" + submitData,
+             success: function(getThis){
+                 console.log("success!")
+                 console.log(getThis);
+                 var table = document.getElementById("airportSearch")
+                 console.log(table);
+                 table.innerHTML = "";
+
+                 table.innerHTML += "<thead><th>Airports</th></thead>"
+
+                 for(var i = 0; i < getThis.length; i++){
+                     console.log(getThis[i]['value']);
+                     table.innerHTML += "<tr><td>" + getThis[i]['label'] + "</td></tr>";
+                 }
+             }
+        });
+    }
+    </script>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+
+          <div class="inner cover">
+            <h1 class="cover-heading">InstaTravel</h1>
+            <p class="lead">Where will your next like take you?</p>
+            <p class="lead">
+              <div class="form-group">
+                <input type="email" class="form-control" id="location" placeholder="Closest airport (abbreviation)?" onchange="searchAirport()"> <br>
+                <button type="submit" class="btn btn-default" onclick="searchAirport()">Search</button>
+              </div>
+
+            </p>
+          </div>
+
+
+<!--          Footer for bootstrap    -->
+   
+          <div id="airportTable" class="table-responsive">
+            <h1>Search Result</h1>
+            <table class="table" id="airportSearch">
+            <thead>
+                  <th>Airport</th>
+              </thead>
+              <tbody id="airportSearchBody">
+              </tbody>
+              <tr>
+              </tr>
+            </table>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+{% endblock %}

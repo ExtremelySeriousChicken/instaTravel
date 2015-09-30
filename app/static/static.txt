@@ -1,0 +1,2 @@
+fill in the static files ie js/css
+

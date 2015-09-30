@@ -1,0 +1,8 @@
+body {
+    background-image: url("../images/background2.jpg");
+    background-size: cover;
+}
+ h1 {
+     font-family: 'Special Elite', cursive;
+     font-size: 80px;
+ }
